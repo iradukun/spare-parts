@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
+
 function CategoriesAPI() {
     const [categories, setCategories] = useState([])
     const [callback, setCallback] = useState(false)
@@ -18,5 +19,6 @@ function CategoriesAPI() {
         callback: [callback, setCallback]
     }
 }
+
 
 export default CategoriesAPI
