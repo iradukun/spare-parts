@@ -82,7 +82,7 @@ button{
    justify-content: space-around;
    align-items: center;
    opacity: 0.8;
-   z-index: 99;
+   z-index: 0.4;
    transition: 0.5s ease-in;
   }
   header .menu{
