@@ -6,6 +6,7 @@ function Login() {
     const [user, setUser] = useState({
         email:'', password: ''
     })
+    const basurl='https://spare-part.herokuapp.com'
 
     const onChangeInput = e =>{
         const {name, value} = e.target;
@@ -15,7 +16,7 @@ function Login() {
     const loginSubmit = async e =>{
         e.preventDefault()
         try {
-            await axios.post('/user/login', {...user})
+            await axios.post(basurl+'/user/login', {...user})
 
             localStorage.setItem('firstLogin', true)
             
