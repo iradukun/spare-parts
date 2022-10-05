@@ -13,7 +13,7 @@ const initialState = {
     category: '',
     _id: ''
 }
-// const basurl='https://spare-part.herokuapp.com'
+ // const basurl='https://spare-part.herokuapp.com'
 function CreateProduct() {
     const state = useContext(GlobalState)
     const [product, setProduct] = useState(initialState)

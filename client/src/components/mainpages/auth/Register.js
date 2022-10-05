@@ -6,7 +6,7 @@ function Register() {
     const [user, setUser] = useState({
         name:'', email:'', password: ''
     })
-    // const basurl='https://spare-part.herokuapp.com'
+    // // const basurl='https://spare-part.herokuapp.com'
     const onChangeInput = e =>{
         const {name, value} = e.target;
         setUser({...user, [name]:value})

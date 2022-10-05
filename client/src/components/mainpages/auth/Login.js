@@ -6,7 +6,7 @@ function Login() {
     const [user, setUser] = useState({
         email:'', password: ''
     })
-    // const basurl='https://spare-part.herokuapp.com'
+     // const baseurl='https://spare-part.herokuapp.com'
 
     const onChangeInput = e =>{
         const {name, value} = e.target;
