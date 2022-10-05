@@ -6,7 +6,7 @@ function Register() {
     const [user, setUser] = useState({
         name:'', email:'', password: ''
     })
-    const basurl='https://spare-part.herokuapp.com'
+    // const basurl='https://spare-part.herokuapp.com'
     const onChangeInput = e =>{
         const {name, value} = e.target;
         setUser({...user, [name]:value})
@@ -15,11 +15,10 @@ function Register() {
     const registerSubmit = async e =>{
         e.preventDefault()
         try {
-            await axios.post(basurl+'/user/register', {...user})
-
+            await axios.post('/user/register', {...user})
+            
             localStorage.setItem('firstLogin', true)
 
-            
             window.location.href = "/";
         } catch (err) {
             alert(err.response.data.msg)

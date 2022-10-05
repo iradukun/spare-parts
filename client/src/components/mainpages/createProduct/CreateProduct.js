@@ -13,7 +13,7 @@ const initialState = {
     category: '',
     _id: ''
 }
-
+// const basurl='https://spare-part.herokuapp.com'
 function CreateProduct() {
     const state = useContext(GlobalState)
     const [product, setProduct] = useState(initialState)
@@ -99,7 +99,7 @@ function CreateProduct() {
     const handleSubmit = async e =>{
         e.preventDefault()
         try {
-            if(!isAdmin) return alert("You're not an admin")
+            if(!isAdmin) return alert("sorry,!You're not an admin")
             if(!images) return alert("No Image Upload")
 
             if(onEdit){
@@ -117,7 +117,7 @@ function CreateProduct() {
             alert(err.response.data.msg)
         }
     }
-
+    
     const styleUpload = {
         display: images ? "block" : "none"
     }

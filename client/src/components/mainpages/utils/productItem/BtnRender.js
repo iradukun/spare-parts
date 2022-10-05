@@ -6,7 +6,6 @@ function BtnRender({product, deleteProduct}) {
     const state = useContext(GlobalState)
     const [isAdmin] = state.userAPI.isAdmin
     const addCart = state.userAPI.addCart
-
     
     return (
         <div className="row_btn">

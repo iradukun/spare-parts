@@ -9,10 +9,9 @@ export const GlobalState = createContext()
 
 export const DataProvider = ({children}) =>{
     const [token, setToken] = useState(false)
-
-
+    // const basurl='https://spare-part.herokuapp.com'
     useEffect(() =>{
-        const firstLogin = localStorage.getItem('firstLogin')
+        const firstLogin = localStorage.getItem('firstLogin');
         if(firstLogin){
             const refreshToken = async () =>{
                 const res = await axios.get('/user/refresh_token')
@@ -26,8 +25,6 @@ export const DataProvider = ({children}) =>{
             refreshToken()
         }
     },[])
-
-
     
     const state = {
         token: [token, setToken],
