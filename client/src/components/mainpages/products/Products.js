@@ -15,7 +15,8 @@ function Products() {
     const [callback, setCallback] = state.productsAPI.callback
     const [loading, setLoading] = useState(false)
     const [isCheck, setIsCheck] = useState(false)
-
+    const baseurl='https://spare-part.herokuapp.com'
+ 
     const handleCheck = (id) =>{
         products.forEach(product => {
             if(product._id === id) product.checked = !product.checked
@@ -26,10 +27,10 @@ function Products() {
     const deleteProduct = async(id, public_id) => {
         try {
             setLoading(true)
-            const destroyImg = axios.post('/api/destroy', {public_id},{
+            const destroyImg = axios.post(baseurl+'/api/destroy', {public_id},{
                 headers: {Authorization: token}
             })
-            const deleteProduct = axios.delete(`/api/products/${id}`, {
+            const deleteProduct = axios.delete(`${baseurl}/api/products/${id}`, {
                 headers: {Authorization: token}
             })
 

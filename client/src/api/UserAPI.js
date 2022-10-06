@@ -6,14 +6,18 @@ function UserAPI(token) {
     const [isAdmin, setIsAdmin] = useState(false)
     const [cart, setCart] = useState([])
     const [history, setHistory] = useState([])
+    const baseurl='https://spare-part.herokuapp.com'
 
     
     useEffect(() =>{
         if(token){
             const getUser = async () =>{
                 try {
-                    const res = await axios.get('/user/infor', {
-                        headers: {Authorization: token}
+                    const res = await axios.get(baseurl+'/user/infor', {
+                        headers: {Authorization: token},
+                        withCredentials: true,
+                        
+                        
                     })
 
                     setIsLogged(true)
@@ -43,7 +47,7 @@ function UserAPI(token) {
         if(check){
             setCart([...cart, {...product, quantity: 1}])
 
-            await axios.patch('/user/addcart', {cart: [...cart, {...product, quantity: 1}]}, {
+            await axios.patch(baseurl+'/user/addcart', {cart: [...cart, {...product, quantity: 1}]}, {
                 headers: {Authorization: token}
             })
 

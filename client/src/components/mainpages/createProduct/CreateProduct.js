@@ -13,7 +13,8 @@ const initialState = {
     category: '',
     _id: ''
 }
- // const basurl='https://spare-part.herokuapp.com'
+const baseurl='https://spare-part.herokuapp.com'
+
 function CreateProduct() {
     const state = useContext(GlobalState)
     const [product, setProduct] = useState(initialState)
@@ -81,7 +82,7 @@ function CreateProduct() {
         try {
             if(!isAdmin) return alert("You're not an admin")
             setLoading(true)
-            await axios.post('/api/destroy', {public_id: images.public_id}, {
+            await axios.post(baseurl+'/api/destroy', {public_id: images.public_id}, {
                 headers: {Authorization: token}
             })
             setLoading(false)
@@ -103,11 +104,11 @@ function CreateProduct() {
             if(!images) return alert("No Image Upload")
 
             if(onEdit){
-                await axios.put(`/api/products/${product._id}`, {...product, images}, {
+                await axios.put(`${baseurl}/api/products/${product._id}`, {...product, images}, {
                     headers: {Authorization: token}
                 })
             }else{
-                await axios.post('/api/products', {...product, images}, {
+                await axios.post(baseurl+'/api/products', {...product, images}, {
                     headers: {Authorization: token}
                 })
             }
