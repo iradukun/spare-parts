@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react'
 import {GlobalState} from '../../../GlobalState'
-import axios from 'axios'
+import {_axios as axios} from '../../../constant/constant.js'
+import { BASEURL } from '../../../constant/constant.js'
 
 function Categories() {
     const state = useContext(GlobalState)
@@ -10,7 +11,7 @@ function Categories() {
     const [callback, setCallback] = state.categoriesAPI.callback
     const [onEdit, setOnEdit] = useState(false)
     const [id, setID] = useState('')
-    const baseurl='https://spare-part.herokuapp.com'
+    const baseurl= BASEURL
  
     const createCategory = async e =>{
         e.preventDefault()

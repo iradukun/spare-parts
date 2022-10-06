@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
-import axios from 'axios'
+import {_axios as axios} from '../constant/constant'
+import {BASEURL} from '../index'
 
 
 function ProductsAPI() {
@@ -10,7 +11,7 @@ function ProductsAPI() {
     const [search, setSearch] = useState('')
     const [page, setPage] = useState(1)
     const [result, setResult] = useState(0)
-    const baseurl='https://spare-part.herokuapp.com'
+    const baseurl= BASEURL
     
     useEffect(() =>{
         const getProducts = async () => {
@@ -19,7 +20,7 @@ function ProductsAPI() {
             setResult(res.data.result)
         }
         getProducts()
-    },[callback, category, sort, search, page])
+    },[callback, category, sort, search, page, baseurl])
     
     return {
         products: [products, setProducts],

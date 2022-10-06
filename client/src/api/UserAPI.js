@@ -1,12 +1,13 @@
 import {useState, useEffect} from 'react'
-import axios from 'axios'
+import {_axios as axios} from '../constant/constant.js'
+import { BASEURL } from '../constant/constant'
 
 function UserAPI(token) {
     const [isLogged, setIsLogged] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
     const [cart, setCart] = useState([])
     const [history, setHistory] = useState([])
-    const baseurl='https://spare-part.herokuapp.com'
+    const baseurl= BASEURL
 
     
     useEffect(() =>{
@@ -26,14 +27,14 @@ function UserAPI(token) {
                     setCart(res.data.cart)
 
                 } catch (err) {
-                    alert(err.response.data.msg)
+                    alert(err.message)
                 }
             }
 
             getUser()
             
         }
-    },[token])
+    },[token, baseurl])
 
     
 

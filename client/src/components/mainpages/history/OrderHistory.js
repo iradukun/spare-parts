@@ -1,14 +1,15 @@
 import React, {useContext, useEffect} from 'react'
 import {GlobalState} from '../../../GlobalState'
 import {Link} from 'react-router-dom'
-import axios from 'axios'
+import {_axios as axios} from '../../../constant/constant.js'
+import { BASEURL } from '../../../constant/constant.js'
 
 function OrderHistory() {
     const state = useContext(GlobalState)
     const [history, setHistory] = state.userAPI.history
     const [isAdmin] = state.userAPI.isAdmin
     const [token] = state.token
-    const baseurl='https://spare-part.herokuapp.com'
+    const baseurl= BASEURL
     useEffect(() => {
         if(token){
             const getHistory = async() =>{
@@ -26,7 +27,7 @@ function OrderHistory() {
             }
             getHistory()
         }
-    },[token, isAdmin, setHistory])
+    },[token, isAdmin, setHistory, baseurl])
 
     return (
         <div className="history-page">

@@ -2,20 +2,21 @@ import React, {createContext, useState, useEffect} from 'react'
 import ProductsAPI from './api/ProductsAPI'
 import UserAPI from './api/UserAPI'
 import CategoriesAPI from './api/CategoriesAPI'
+import { BASEURL } from './constant/constant.js'
 
-import axios from 'axios'
+import {_axios as axios} from './constant/constant.js'
 
 export const GlobalState = createContext()
 
 export const DataProvider = ({children}) =>{
     const [token, setToken] = useState(false)
-    const baseurl='https://spare-part.herokuapp.com'
+    const baseurl= BASEURL
  
     useEffect(() =>{
         const firstLogin = localStorage.getItem('firstLogin');
         if(firstLogin){
             const refreshToken = async () =>{
-                const res = await axios.get(baseurl+'/user/refresh_token')
+                const res = await axios.get(baseurl+'/user/refresh_token', {withCredentials: true})
         
                 setToken(res.data.accesstoken)
     
@@ -25,7 +26,7 @@ export const DataProvider = ({children}) =>{
             }
             refreshToken()
         }
-    },[])
+    },[baseurl])
     
     const state = {
         token: [token, setToken],

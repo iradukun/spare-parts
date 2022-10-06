@@ -1,11 +1,11 @@
 import {useState, useEffect} from 'react'
-import axios from 'axios'
-
+import {_axios as axios} from '../constant/constant.js'
+import { BASEURL } from './../constant/constant.js'
 
 function CategoriesAPI() {
     const [categories, setCategories] = useState([])
     const [callback, setCallback] = useState(false)
-    const baseurl='https://spare-part.herokuapp.com'
+    const baseurl= BASEURL
 
     useEffect(() =>{
         const getCategories = async () =>{
@@ -14,7 +14,7 @@ function CategoriesAPI() {
         }
 
         getCategories()
-    },[callback])
+    },[callback, baseurl])
     return {
         categories: [categories, setCategories],
         callback: [callback, setCallback]

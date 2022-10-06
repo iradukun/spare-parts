@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import axios from 'axios'
+import {_axios as axios} from '../../../constant/constant.js'
+import { BASEURL } from '../../../constant/constant.js'
 
 function Register() {
     const [user, setUser] = useState({
         name:'', email:'', password: ''
     })
-    const baseurl='https://spare-part.herokuapp.com'
+    const baseurl= BASEURL
     
     const onChangeInput = e =>{
         const {name, value} = e.target;

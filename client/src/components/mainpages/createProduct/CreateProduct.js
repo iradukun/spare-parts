@@ -1,8 +1,9 @@
 import React, {useState, useContext, useEffect} from 'react'
-import axios from 'axios'
+import {_axios as axios} from '../../../constant/constant.js'
 import {GlobalState} from '../../../GlobalState'
 import Loading from '../utils/loading/Loading'
 import {useHistory, useParams} from 'react-router-dom'
+import { BASEURL } from '../../../constant/constant.js'
 
 const initialState = {
     product_id: '',
@@ -13,7 +14,7 @@ const initialState = {
     category: '',
     _id: ''
 }
-const baseurl='https://spare-part.herokuapp.com'
+const baseurl= BASEURL
 
 function CreateProduct() {
     const state = useContext(GlobalState)

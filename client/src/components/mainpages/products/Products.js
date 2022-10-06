@@ -2,9 +2,10 @@ import React, {useContext, useState} from 'react'
 import {GlobalState} from '../../../GlobalState'
 import ProductItem from '../utils/productItem/ProductItem'
 import Loading from '../utils/loading/Loading'
-import axios from 'axios'
+import {_axios as axios} from '../../../constant/constant.js'
 import Filters from './Filters'
 import LoadMore from './LoadMore'
+import { BASEURL } from '../../../constant/constant.js'
 
 
 function Products() {
@@ -15,7 +16,7 @@ function Products() {
     const [callback, setCallback] = state.productsAPI.callback
     const [loading, setLoading] = useState(false)
     const [isCheck, setIsCheck] = useState(false)
-    const baseurl='https://spare-part.herokuapp.com'
+    const baseurl= BASEURL
  
     const handleCheck = (id) =>{
         products.forEach(product => {

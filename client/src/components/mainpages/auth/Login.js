@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import axios from 'axios'
-
+import {_axios as axios} from '../../../constant/constant'
+import { BASEURL } from '../../../constant/constant.js'
 function Login() {
     const [user, setUser] = useState({
         email:'', password: ''
     })
-     const baseurl='https://spare-part.herokuapp.com'
+     const baseurl= BASEURL
 
     const onChangeInput = e =>{
         const {name, value} = e.target;
@@ -16,14 +16,17 @@ function Login() {
     const loginSubmit = async e =>{
         e.preventDefault()
         try {
-            await axios.post(baseurl+'/user/login',{...user}, {withCredentials: true})
-           
+            await axios.post(baseurl+'/user/login',{...user}, {withCredentials: true}).then(res=>{
 
-            localStorage.setItem('firstLogin', true)
+                localStorage.setItem('firstLogin', true)
+                window.location.href = "/";
+            }).catch(err=>{
+                alert(err);
+            })
+         
             
-            window.location.href = "/";
         } catch (err) {
-            alert(err.response.data.msg)
+            alert(err.message)
         }
     }
 
