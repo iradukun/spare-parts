@@ -3,7 +3,7 @@ import ProductsAPI from './api/ProductsAPI'
 import UserAPI from './api/UserAPI'
 import CategoriesAPI from './api/CategoriesAPI'
 import { BASEURL } from './constant/constant.js'
-
+import { proxyurl } from './constant/constant.js'
 import {_axios as axios} from './constant/constant.js'
 
 export const GlobalState = createContext()
@@ -14,9 +14,9 @@ export const DataProvider = ({children}) =>{
  
     useEffect(() =>{
         const firstLogin = localStorage.getItem('firstLogin');
-        if(firstLogin){
+        if(firstLogin===true){
             const refreshToken = async () =>{
-                const res = await axios.get(baseurl+'/user/refresh_token')
+                const res = await axios.get(proxyurl +baseurl+'/user/refresh_token',{withCredentials: true})
         
                 setToken(res.data.accesstoken)
     
