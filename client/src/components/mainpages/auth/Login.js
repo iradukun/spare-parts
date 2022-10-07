@@ -16,12 +16,12 @@ function Login() {
     const loginSubmit = async e =>{
         e.preventDefault()
         try {
-            await axios.post(baseurl+'/user/login',{...user}, {withCredentials: true})
-
-
-
-        localStorage.setItem('firstLogin', true)
-        window.location.href = "/";
+            await axios.post(baseurl+'/user/login',{...user}, {withCredentials: true}).then(()=>{
+            localStorage.setItem('firstLogin', true)
+            window.location.href = "/";
+            }).catch((error)=>{
+                console.log(error);
+            })
            
         } catch (err) {
             alert(err.message)
