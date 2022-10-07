@@ -5,6 +5,8 @@ import Close from './icon/close.svg'
 import Cart from './icon/cart.svg'
 import {Link} from 'react-router-dom'
 import {_axios as axios} from '../../constant/constant'
+import {BASEURL} from '../../constant/constant'
+
 
 function Header() {
     const state = useContext(GlobalState)
@@ -14,7 +16,7 @@ function Header() {
     const [menu, setMenu] = useState(false)
 
     const logoutUser = async () =>{
-        await axios.get('/user/logout')
+        await axios.get(BASEURL+'/user/logout')
         
         localStorage.removeItem('firstLogin')
         
