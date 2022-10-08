@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import {_axios as axios} from '../../../constant/constant'
+import {_axios as axios} from '../../../constant/constant.js'
 import { BASEURL } from '../../../constant/constant.js'
 function Login() {
     const [user, setUser] = useState({
