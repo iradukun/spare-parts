@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {_axios as axios} from '../constant/constant'
-import {BASEURL} from '../index'
+import {BASEURL} from '../constant/constant'
 
 
 function ProductsAPI() {
