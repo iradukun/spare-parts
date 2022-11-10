@@ -13,5 +13,5 @@ export const getDate = (date: Date) => {
 
 export const baseUrl =
   import.meta.env.VITE_MODE === 'development'
-    ? 'http://localhost:5000'
-    : 'http://localhost:5000';
+    ? 'https://agreeable-dog-shirt.cyclic.app'
+    : 'https://agreeable-dog-shirt.cyclic.app';

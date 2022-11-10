@@ -57,26 +57,26 @@ const DownFooter = () => {
                 </li>
                 <li>
                   <i className='bx bx-chevron-right' />{' '}
-                  <a href='#'>Web Development</a>
+                  <a href='#'>Carpart Takecare</a>
                 </li>
                 <li>
                   <i className='bx bx-chevron-right' />{' '}
-                  <a href='#'>Product Management</a>
+                  <a href='#'>Product shipmet</a>
                 </li>
                 <li>
                   <i className='bx bx-chevron-right' />{' '}
-                  <a href='#'>Marketing</a>
+                  <a href='#'>Home delivery</a>
                 </li>
                 <li>
                   <i className='bx bx-chevron-right' />{' '}
-                  <a href='#'>Graphic Design</a>
+                  <a href='#'>Terms & Policy</a>
                 </li>
               </ul>
             </Col>
             <Col lg={4} md={6} className='footer-newsletter'>
               <h4>Join Our Newsletter</h4>
               <p>
-                we will get our newletter to your email shortly
+                we will get our newsletter to your email shortly and be up to date
               </p>
               <form onSubmit={() => toast.success('thanks for yr Subscrition')}>
                 <input
