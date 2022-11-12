@@ -17,7 +17,7 @@ type Props = {
 
 type FormValues = {
   name: string;
-  image: string;
+  image: any;
   category: string;
   brand: string;
   price: number;
@@ -40,20 +40,39 @@ const ProductModal = ({ show, handleClose, setRefresh }: Props) => {
   } = useForm<FormValues>({
     resolver: yupResolver(validationSchema),
   });
-
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+   
+  const onChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const reader = new FileReader();
+    // const [file] = e.target.files;
     if (e.target.files) {
-      const file = e.target.files[0];
+    const file:any = e.target.files[0];
 
-      let formData = new FormData();
+    reader.readAsDataURL(file);
 
-      formData.append('image', file);
-
-      authAxios.post('/uploads/image', formData).then((res) => {
-        if (res.data) {
-          setImage(`${baseUrl}${res.data}`);
-        }
+    reader.onload = () => {
+      // ,{headers:{'Content-type':"multipart/form-data"}}
+      authAxios.post('/uploads/image', { imageData: reader.result}).then((res) => {
+        
+        setImage(res.data);
+          
+        
+      }).catch(err=>{
+        alert(err.message);
       });
+    };
+
+    //  console.log("checking absence of files", file);
+    //   let formData = new FormData();
+
+    //   formData.append('file', file.name);
+    //   for(const entry of formData.entries())
+    //    console.log(entry);
+    // const res= await authAxios.post('/uploads/image',formData)
+    // setImage(res.data);
+    // console.log(res.data);
+    
+    
     }
   };
 
@@ -86,8 +105,9 @@ const ProductModal = ({ show, handleClose, setRefresh }: Props) => {
           <Form.Control
             type='file'
             placeholder='Gtx 1660 super'
-            name='image'
+            name='file'
             onChange={onChange}
+            
           />
         </Form.Group>
         <Form.Group>
