@@ -40,44 +40,39 @@ const ProductModal = ({ show, handleClose, setRefresh }: Props) => {
   } = useForm<FormValues>({
     resolver: yupResolver(validationSchema),
   });
-   
+   let globalfile: any;
   const onChange = async (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    const reader = new FileReader();
+    // const reader = new FileReader();
     // const [file] = e.target.files;
     if (e.target.files) {
     const file:any = e.target.files[0];
-
+     
+  
+    const reader = new FileReader();
     reader.readAsDataURL(file);
 
     reader.onload = () => {
+      globalfile=reader.result;
       // ,{headers:{'Content-type':"multipart/form-data"}}
-      authAxios.post('/uploads/image', { imageData: reader.result}).then((res) => {
-        
-        setImage(res.data);
-          
-        
-      }).catch(err=>{
-        alert(err.message);
-      });
+     
     };
-
-    //  console.log("checking absence of files", file);
-    //   let formData = new FormData();
-
-    //   formData.append('file', file.name);
-    //   for(const entry of formData.entries())
-    //    console.log(entry);
-    // const res= await authAxios.post('/uploads/image',formData)
-    // setImage(res.data);
-    // console.log(res.data);
-    
     
     }
   };
 
-  const onSubmit = (data: FormValues) => {
-    authAxios
+  const onSubmit = async (data: FormValues) => {
+   
+   await  authAxios.post('/uploads/image', { imageData: globalfile}).then((res) => {
+        
+   setImage(res.data.url);
+      console.log("response data",res.data);
+        
+      
+    }).catch(err=>{
+      console.log(err.message);
+    });
+   await  authAxios
       .post('/products', { ...data, image })
       .then((res) => {
         toast.success('Product has beend created');

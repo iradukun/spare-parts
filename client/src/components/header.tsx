@@ -35,7 +35,7 @@ const Header = () => {
               <i className='fa text-sm  fa-phone mx-2'></i>
               <a
                 className='navbar-sm-brand text-sm  text-light text-decoration-none'
-                href='tel:010-020-0340'
+                href='tel:0788298718'
               >
                 +250781043617
               </a>
