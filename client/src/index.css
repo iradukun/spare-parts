@@ -1,6 +1,6 @@
-@import '@webpixels/css';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css');
+@import "@webpixels/css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
 
 * {
   box-sizing: border-box;
@@ -10,7 +10,7 @@
 
 body {
   background: #f1f1f1 !important;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -32,9 +32,40 @@ a {
 }
 
 .carsouel__item img {
-  height: 50rem;
+  border-radius: 6px;
+  height: 30rem;
 }
-
+.product-card {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+  transition-property: transform;
+}
+.product-card:hover {
+  transform: scale(1.05);
+}
+.carousel_container {
+  margin-top: 30px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  background: black;
+  height: fit-content;
+  margin: auto 0;
+  width: fit-content;
+  border-radius: 50%;
+  padding: 10px 5px;
+  bottom: 20px;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 20px;
+}
+.carousel-control-prev {
+  left: 30px;
+}
+.carousel-control-next {
+  right: 30px;
+}
 .nav-link span {
   font-size: 1.1rem;
   transition: all 0.2s ease;
@@ -56,7 +87,7 @@ a {
 
 @media (max-height: 760px) {
   .carsouel__item img {
-    height: 15rem;
+    /* height: 15rem; */
   }
 }
 
@@ -80,18 +111,18 @@ section {
 
 /* Brand */
 .brand-img {
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
   opacity: 0.5;
   transition: 0.5s;
-  height: 70px;
-  width: 120px;
+  /* height: 70px;
+  width: 120px; */
 }
 
 @media (max-height: 760px) {
-  .brand-img {
+  /* .brand-img {
     height: 40px;
     width: 80px;
-  }
+  } */
 }
 
 .brand-img:hover {

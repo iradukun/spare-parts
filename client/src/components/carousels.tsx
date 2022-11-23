@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Carousel } from 'react-bootstrap';
+import { useState } from "react";
+import { Carousel } from "react-bootstrap";
 
 const Carousels = () => {
   const [index, setIndex] = useState(0);
@@ -7,30 +7,23 @@ const Carousels = () => {
   const handleSelect = (selectedIndex: number) => {
     setIndex(selectedIndex);
   };
-
+  const images = [
+    "https://germaine.ng/wp-content/uploads/2019/11/Vero.banner2.jpeg",
+    "http://dhanyaautospareparts.dhanyagroup.com/data1/images/banner4.jpg",
+    "http://dhanyaautospareparts.dhanyagroup.com/data1/images/banner3.jpg",
+  ];
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item className='carsouel__item'>
-        <img
-          className='d-block w-full '
-          src='/images/banner3.jpeg'
-          alt='First slide'
-        />
-      </Carousel.Item>
-      <Carousel.Item className='carsouel__item'>
-        <img
-          className='d-block w-full '
-          src='/images/banner1.jpeg'
-          alt='Second slide'
-        />
-      </Carousel.Item>
-      <Carousel.Item className='carsouel__item'>
-        <img
-          className='d-block w-full '
-          src='/images/banner4.jpeg'
-          alt='Third slide'
-        />
-      </Carousel.Item>
+    <Carousel className="container-xl carousel_container" activeIndex={index} onSelect={handleSelect}>
+      {images.map((image, index) => (
+        <Carousel.Item key={index} className="carsouel__item">
+          <img
+            className="w-full"
+            // className="d-block w-full"
+            src={image}
+            alt="First slide"
+          />
+        </Carousel.Item>
+      ))}
     </Carousel>
   );
 };

@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import toast from 'react-hot-toast';
-import { Product } from '../../components/product-card';
-import { setError } from '../../utils/error';
-import publicAxios from '../../utils/public-axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
+import { Product } from "../../components/product-card";
+import { setError } from "../../utils/error";
+import publicAxios from "../../utils/public-axios";
 
 export interface ProductSliceState {
   products: Product[];
@@ -18,9 +18,10 @@ const initialState: ProductSliceState = {
   error: null,
 };
 
-export const getProducts = createAsyncThunk('products/list', async () => {
+export const getProducts = createAsyncThunk("products/list", async () => {
   try {
-    const { data } = await publicAxios.get('/products');
+    const { data } = await publicAxios.get("/products");
+    console.log(data);
     return data;
   } catch (error: any) {
     const message = setError(error);
@@ -29,7 +30,7 @@ export const getProducts = createAsyncThunk('products/list', async () => {
 });
 
 export const productListSlice = createSlice({
-  name: 'products-list',
+  name: "products-list",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
