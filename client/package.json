@@ -1,5 +1,6 @@
 {
-  "name": "train-ts1",
+  "name": "spare-parts",
+  "description":"An e-commerce intended to sell parts and accessories of different brands of call",
   "private": true,
   "version": "0.0.0",
   "scripts": {

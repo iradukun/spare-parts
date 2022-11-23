@@ -22,7 +22,7 @@ export const getUsersList = createAsyncThunk('users/list', async () => {
     if (res.data) {
       return res.data;
     }
-  } catch (error) {
+  } catch (error:any) {
     const message = setError(error);
     toast.error(message);
   }
@@ -45,6 +45,8 @@ export const userListSlice = createSlice({
     });
   },
 });
+
+
 
 // Action creators are generated for each case reducer function
 

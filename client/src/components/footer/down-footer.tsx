@@ -15,7 +15,7 @@ const DownFooter = () => {
               <p>
                 2 street KG29
                 <br />
-                69780 Mions Lyon
+                KIGALI Nyarugenge
                 <br />
                 Rwanda
                 <br />
@@ -27,7 +27,7 @@ const DownFooter = () => {
               </p>
             </Col>
             <Col lg={2} md={6} xs={6} className=' footer-links'>
-              <h4>Useful Links</h4>
+              <h4 className='colorHeader'>Useful Links</h4>
               <ul>
                 <li>
                   <i className='bx bx-chevron-right' /> <a href='#'>Home</a>
@@ -49,7 +49,7 @@ const DownFooter = () => {
               </ul>
             </Col>
             <Col lg={3} md={6} xs={6} className='footer-links'>
-              <h4>Our Services</h4>
+              <h4 className='colorHeader'>Our Services</h4>
               <ul>
                 <li>
                   <i className='bx bx-chevron-right' />{' '}
@@ -74,7 +74,7 @@ const DownFooter = () => {
               </ul>
             </Col>
             <Col lg={4} md={6} className='footer-newsletter'>
-              <h4>Join Our Newsletter</h4>
+              <h4  className='colorHeader'>Join Our Newsletter</h4>
               <p>
                 we will get our newsletter to your email shortly and be up to date
               </p>

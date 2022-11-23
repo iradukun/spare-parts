@@ -19,7 +19,7 @@ const Contact = () => {
                 <div className='info-box bg-white'>
                   <i className='bx bx-map' />
                   <h3>Our Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p>A10 KIGALI, Nyarugenge, KG 456789</p>
                 </div>
               </Col>
               <Col md={6}>
@@ -38,9 +38,9 @@ const Contact = () => {
                   <i className='bx bx-phone-call' />
                   <h3>Call Us</h3>
                   <p>
-                    +1 5589 55488 55
+                    +078829871899
                     <br />
-                    +1 6678 254445 41
+                    +0788829718456
                   </p>
                 </div>
               </Col>
