@@ -1,8 +1,8 @@
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../redux';
-import { reset } from '../redux/cart/cart-slice';
-import { userLogout } from '../redux/users/login-slice';
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../redux";
+import { reset } from "../redux/cart/cart-slice";
+import { userLogout } from "../redux/users/login-slice";
 
 const Header = () => {
   const { userInfo } = useAppSelector((state) => state.login);
@@ -13,62 +13,62 @@ const Header = () => {
   const onLogout = () => {
     dispatch(userLogout());
     dispatch(reset());
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
     <>
       <nav
-        className='navbar navbar-expand-lg bg-dark navbar-light h-12 d-none d-lg-block'
-        id='templatemo_nav_top'
+        className="navbar navbar-expand-lg bg-dark navbar-light h-12 d-none d-lg-block"
+        id="templatemo_nav_top"
       >
-        <div className='container text-light'>
-          <div className='w-full d-flex justify-content-between align-items-center'>
+        <div className="container text-light">
+          <div className="w-full d-flex justify-content-between align-items-center">
             <div>
-              <i className='fa text-sm  fa-envelope mx-2'></i>
+              <i className="fa text-sm  fa-envelope mx-2"></i>
               <a
-                className='navbar-sm-brand text-light text-sm text-decoration-none'
-                href='mailto:info@company.com'
+                className="navbar-sm-brand text-light text-sm text-decoration-none"
+                href="mailto:info@company.com"
               >
-              zamdabazange@gmail.com
+                zamdabazange@gmail.com
               </a>
-              <i className='fa text-sm  fa-phone mx-2'></i>
+              <i className="fa text-sm  fa-phone mx-2"></i>
               <a
-                className='navbar-sm-brand text-sm  text-light text-decoration-none'
-                href='tel:0788298718'
+                className="navbar-sm-brand text-sm  text-light text-decoration-none"
+                href="tel:0788298718"
               >
                 +250781043617
               </a>
             </div>
             <div>
               <a
-                className='text-light'
-                href='https://fb.com'
-                target='_blank'
-                rel='sponsored'
+                className="text-light"
+                href="https://fb.com"
+                target="_blank"
+                rel="sponsored"
               >
-                <i className='fab text-sm  fa-facebook-f fa-sm fa-fw me-2'></i>
+                <i className="fab text-sm  fa-facebook-f fa-sm fa-fw me-2"></i>
               </a>
               <a
-                className='text-light'
-                href='https://www.instagram.com/'
-                target='_blank'
+                className="text-light"
+                href="https://www.instagram.com/"
+                target="_blank"
               >
-                <i className='fab text-sm  fa-instagram fa-sm fa-fw me-2'></i>
+                <i className="fab text-sm  fa-instagram fa-sm fa-fw me-2"></i>
               </a>
               <a
-                className='text-light'
-                href='https://twitter.com/'
-                target='_blank'
+                className="text-light"
+                href="https://twitter.com/"
+                target="_blank"
               >
-                <i className='fab text-sm fa-twitter fa-sm fa-fw me-2'></i>
+                <i className="fab text-sm fa-twitter fa-sm fa-fw me-2"></i>
               </a>
               <a
-                className='text-light'
-                href='https://www.linkedin.com/'
-                target='_blank'
+                className="text-light"
+                href="https://www.linkedin.com/"
+                target="_blank"
               >
-                <i className='fab text-sm fa-linkedin fa-sm fa-fw'></i>
+                <i className="fab text-sm fa-linkedin fa-sm fa-fw"></i>
               </a>
             </div>
           </div>
@@ -77,57 +77,57 @@ const Header = () => {
 
       <Navbar
         collapseOnSelect
-        expand='lg'
-        sticky='top'
-        bg='white'
-        className='shadow px-0 py-3'
+        expand="lg"
+        sticky="top"
+        bg="white"
+        className="shadow px-0 py-3"
       >
-        <div className='container-xl'>
+        <div className="container-xl">
           {/* Logo */}
-          <Navbar.Brand as={NavLink} to='/'>
+          <Navbar.Brand as={NavLink} to="/">
             <img
-              src='/Component 4.png'
-              className='avatar rounded me-lg-10'
-              alt='...'
+              src="/Component 4.png"
+              className="avatar rounded me-lg-10"
+              alt="..."
             />
           </Navbar.Brand>
           {/* Navbar toggle */}
-          <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           {/* Collapse */}
-          <Navbar.Collapse id='responsive-navbar-nav'>
+          <Navbar.Collapse id="responsive-navbar-nav">
             {/* Nav */}
-            <div className='navbar-nav me-lg-auto'>
+            <div className="navbar-nav me-lg-auto">
               <Nav.Item
                 as={NavLink}
-                className=' nav-link active'
-                to='/'
-                aria-current='page'
+                className=" nav-link active"
+                to="/"
+                aria-current="page"
               >
                 <span>Home</span>
               </Nav.Item>
-              <Nav.Item as={NavLink} className=' nav-link' to='/home'>
+              <Nav.Item as={NavLink} className=" nav-link" to="/home">
                 <span>Product</span>
               </Nav.Item>
 
-              <Nav.Item as={NavLink} className=' nav-link' to='/contact'>
+              <Nav.Item as={NavLink} className=" nav-link" to="/contact">
                 <span>Contact</span>
               </Nav.Item>
             </div>
             {/* Right navigation */}
 
-            <div className='d-flex align-items-center'>
-              <div className='d-flex align-items-center'>
-                <Link className='nav-link' to='/home'>
-                  <i className='fa fa-fw fa-search text-dark me-2'></i>
+            <div className="d-flex align-items-center">
+              <div className="d-flex align-items-center">
+                <Link className="nav-link" to="/home">
+                  <i className="fa fa-fw fa-search text-dark me-2"></i>
                 </Link>
                 <Link
-                  className='nav-icon position-relative text-decoration-none'
-                  to='/cart'
+                  className="nav-icon position-relative text-decoration-none"
+                  to="/cart"
                 >
-                  <i className='fa fa-fw fa-cart-arrow-down text-dark me-2 '></i>
+                  <i className="fa fa-fw fa-cart-arrow-down text-dark me-2 "></i>
                   <span
-                    style={{ backgroundColor: '#e03a3c' }}
-                    className='position-absolute top-0 left-100 translate-middle badge rounded-pill  text-white'
+                    style={{ backgroundColor: "#e03a3c" }}
+                    className="position-absolute top-0 left-100 translate-middle badge rounded-pill  text-white"
                   >
                     {cartItems.length}
                   </span>
@@ -135,23 +135,23 @@ const Header = () => {
               </div>
               {!userInfo ? (
                 <>
-                  <div className='d-flex align-items-lg-center mt-3 mt-lg-0'>
+                  <div className="d-flex align-items-lg-center mt-3 mt-lg-0">
                     <Nav.Link
                       as={NavLink}
-                      style={{backgroundColor: "#281391"}}
-                      to='/login'
-                      className='btn btn-sm text-white me-3 ms-5 '
+                      style={{ backgroundColor: "#281391" }}
+                      to="/login"
+                      className="btn btn-sm text-white me-3 ms-5 "
                     >
                       Login
                     </Nav.Link>
                   </div>
 
-                  <div className='d-flex align-items-lg-center mt-3 mt-lg-0'>
+                  <div className="d-flex align-items-lg-center mt-3 mt-lg-0">
                     <Nav.Link
                       as={NavLink}
-                      to='/register'
-                      style={{ backgroundColor: '#e03a3c' }}
-                      className='btn btn-sm text-white  ms-xs-3 '
+                      to="/register"
+                      style={{ backgroundColor: "#e03a3c" }}
+                      className="btn btn-sm text-white  ms-xs-3 "
                     >
                       Register
                     </Nav.Link>
@@ -159,11 +159,11 @@ const Header = () => {
                 </>
               ) : (
                 <NavDropdown
-                  title={<i className='fa fa-fw fa-user text-dark mr-3'></i>}
-                  id='basic-nav-dropdown'
+                  title={<i className="fa fa-fw fa-user text-dark mr-3"></i>}
+                  id="basic-nav-dropdown"
                 >
                   {userInfo.isAdmin && (
-                    <NavDropdown.Item as={NavLink} to='/dashboard'>
+                    <NavDropdown.Item as={NavLink} to="/dashboard">
                       Dashboard
                     </NavDropdown.Item>
                   )}
