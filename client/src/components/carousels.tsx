@@ -13,11 +13,14 @@ const Carousels = () => {
     "http://dhanyaautospareparts.dhanyagroup.com/data1/images/banner3.jpg",
   ];
   return (
-    <Carousel className="container-xl carousel_container" activeIndex={index} onSelect={handleSelect}>
+    <Carousel
+      className="container-xl carousel_container"
+      activeIndex={index}
+      onSelect={handleSelect}
+    >
       {images.map((image, index) => (
         <Carousel.Item key={index} className="carsouel__item">
           <img
-            className="w-full"
             // className="d-block w-full"
             src={image}
             alt="First slide"

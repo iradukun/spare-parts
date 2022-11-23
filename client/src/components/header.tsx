@@ -138,8 +138,9 @@ const Header = () => {
                   <div className='d-flex align-items-lg-center mt-3 mt-lg-0'>
                     <Nav.Link
                       as={NavLink}
+                      style={{backgroundColor: "#281391"}}
                       to='/login'
-                      className='btn btn-secondary btn-sm text-white me-3 ms-5 '
+                      className='btn btn-sm text-white me-3 ms-5 '
                     >
                       Login
                     </Nav.Link>
