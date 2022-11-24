@@ -43,7 +43,7 @@ a {
   transition-property: transform;
 }
 .product-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 .carousel_container {
   margin-top: 30px;

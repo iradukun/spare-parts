@@ -22,7 +22,7 @@ type Props = {
 
 const ProductCard = ({ product }: Props) => {
   return (
-    <Card className="my-3 p-3  rounded" style={{ height: "400px" }}>
+    <Card className="my-3 p-3 overflow-hidden rounded" style={{ height: "400px" }}>
       <Link to={`/products/${product._id}`}>
         <Card.Img
           className="product-card"
