@@ -52,22 +52,23 @@ const ProductModal = ({ show, handleClose, setRefresh }: Props) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
 
-    reader.onload = () => {
+    reader.onload = async() => {
       globalfile=reader.result;
       // ,{headers:{'Content-type':"multipart/form-data"}}
+      await  authAxios.post('/uploads/image', { imageData:reader.result}).then((res) => {
+        
+        setImage(res.data.url);
+           console.log("response data",res.data);
+             
+           
+         }).catch(err=>{
+           console.log(err.message);
+         });
+      
+      }
      
     };
-    await  authAxios.post('/uploads/image', { imageData: globalfile}).then((res) => {
-        
-      setImage(res.data.url);
-         console.log("response data",res.data);
-           
-         
-       }).catch(err=>{
-         console.log(err.message);
-       });
-    
-    }
+   
   };
 
   const onSubmit = async (data: FormValues) => {
