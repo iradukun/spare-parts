@@ -62,6 +62,17 @@ a {
 .carousel-control-next-icon {
   height: 20px;
 }
+.pagination {
+  display: flex;
+  margin: 10px 0;
+  justify-content: center;
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 150px);
+}
 .carousel-control-prev {
   left: 30px;
 }

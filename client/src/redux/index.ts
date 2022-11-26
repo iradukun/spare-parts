@@ -13,6 +13,7 @@ import userListSlice from './users/user-list';
 import userOrderSlice from './orders/user-orders';
 import orderDetailSlice from './orders/order-details';
 import productFilterSlice from './products/search-list';
+import { changeNavs } from './navigation/sidebar';
 
 const reducers = combineReducers({
   productList: productListSlice.reducer,
@@ -27,6 +28,7 @@ const reducers = combineReducers({
   orders: orderListSlice.reducer,
   userOrder: userOrderSlice.reducer,
   orderDetail: orderDetailSlice.reducer,
+  changeNav: changeNavs.reducer,
 });
 
 const persistConfig = {

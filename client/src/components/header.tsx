@@ -159,7 +159,7 @@ const Header = () => {
                 </>
               ) : (
                 <NavDropdown
-                  title={<i className="fa fa-fw fa-user text-dark mr-3"></i>}
+                  title={<i className="fa fa-fw fa-user  text-dark mr-3"></i>}
                   id="basic-nav-dropdown"
                 >
                   {userInfo.isAdmin && (
