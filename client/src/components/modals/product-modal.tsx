@@ -20,7 +20,7 @@ type FormValues = {
   image: any;
   category: string;
   brand: string;
-  price: number;
+  price: string;
   description: string;
 };
 
@@ -29,7 +29,7 @@ const ProductModal = ({ show, handleClose, setRefresh }: Props) => {
     name: Yup.string().required(),
     category: Yup.string().required(),
     brand: Yup.string().required(),
-    price: Yup.number().required(),
+    price: Yup.string().required(),
     description: Yup.string().required(),
   });
   const [image, setImage] = useState<string>('');
@@ -131,12 +131,14 @@ const ProductModal = ({ show, handleClose, setRefresh }: Props) => {
         <Form.Group>
           <Form.Label>Price</Form.Label>
           <Form.Control
-            type='number'
+            type='text'
+            value={"Price On Deal"}
             placeholder='200.00'
             {...register('price')}
             className={errors.price?.message && 'is-invalid'}
+
           />
-          <p className='invalid-feedback'>{errors.price?.message}</p>
+          <p className='invalid-feedback'>{"price is on deal"}</p>
         </Form.Group>
         <Form.Group>
           <Form.Label>Description</Form.Label>

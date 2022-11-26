@@ -13,9 +13,8 @@ const Contact = () => {
           <div className='section-title'>
             <h2 className='text-center'>Contact</h2>
             <p>
-              Magnam dolores commodi suscipit. Necessitatibus eius consequatur
-              ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam
-              quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
+             We are located in Rwanda KIGALI and we can bring our products to you anywhere you are in rwanda. do not to contact us for
+              help or support on our terms. kindly contact us below or reach on our working center1
             </p>
           </div>
           <Row data-aos='fade-up' data-aos-delay={100}>
@@ -25,7 +24,7 @@ const Contact = () => {
                   <div className='info-box bg-white'>
                     <i className='bx bx-map' />
                     <h3>Our Address</h3>
-                    <p>A108 Adam Street, Rwanda, KG 535022</p>
+                    <p>A108 Biryogo Street, Rwanda, KG 535022</p>
                   </div>
                 </Col>
                 <Col md={6}>
@@ -33,9 +32,9 @@ const Contact = () => {
                     <i className='bx bx-envelope' />
                     <h3>Email Us</h3>
                     <p>
-                      mustaphairadukunda@gmail.com
+                      zamdabazange@gmail.com
                       <br />
-                      soniakali@gmail.com
+                      AMZAaspare@gmail.com
                     </p>
                   </div>
                 </Col>
