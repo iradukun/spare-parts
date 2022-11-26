@@ -8,7 +8,7 @@ type Props = {
 
 const TableContainer = ({ children, cols }: Props) => {
   return (
-    <Card className="p-0 shadow border-0 mt-5 ">
+    <Card className="p-0 shadow border-0 mt-5" >
       <Table responsive hover className="table-nowrap">
         <thead
           style={{ backgroundColor: "#e03a3c" }}

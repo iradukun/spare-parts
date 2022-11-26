@@ -114,14 +114,14 @@ const Products = () => {
                 </Col>
               ))}
             </Row>
-          </Col>
-        </Row>
         <Paginate
           pages={pages}
           page={page}
           keyword={keyword ? keyword : ''}
           isAdmin={false}
         />
+          </Col>
+        </Row>
       </Container>
     </DefaultLayout>
   );
