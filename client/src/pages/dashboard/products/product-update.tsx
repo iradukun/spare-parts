@@ -14,7 +14,7 @@ type FormValues = {
   image: string;
   category: string;
   brand: string;
-  price: number;
+  price: string;
   description: string;
 };
 const ProductUpdate = () => {
@@ -29,7 +29,7 @@ const ProductUpdate = () => {
     image: Yup.string().required(),
     category: Yup.string().required(),
     brand: Yup.string().required(),
-    price: Yup.number().required(),
+    price: Yup.string().required(),
     description: Yup.string().required(),
   });
   console.log(product);
@@ -113,7 +113,7 @@ const ProductUpdate = () => {
                   <Form.Control
                     placeholder='200'
                     {...register('price', {
-                      value: product?.price,
+                      value: product?.price
                     })}
                     className={errors.price?.message && 'is-invalid'}
                   />

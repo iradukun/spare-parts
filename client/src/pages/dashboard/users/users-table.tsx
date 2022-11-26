@@ -59,25 +59,31 @@ const UserTable = () => {
         <Row className="py-3">
           <h3 className="d-flex justify-content-between align-items-center">
             <span>User List</span>
-            {/* <Button size='sm'>Add User</Button> */}
+            <Button size='sm'>Add User</Button>
           </h3>
           <TableContainer cols={cols}>
-            {/* {users.map((user) => ( */}
-            <tr
-            // key={user._id}
-            >
-              <td>{/* {user.name} */}</td>
-              <td>{/* {user.email} */}</td>
-              <td>{/* {getDate(user.createdAt)} */}</td>
-              <td>
-                {/* {user.isAdmin ? (
+            {users.map((user) => (
+              <tr 
+              key={user._id}
+              >
+                <td>
+                  {user.name}
+                </td>
+                <td>
+                  {user.email}
+                  </td>
+                <td>
+                  {getDate(user.createdAt)}
+                  </td>
+                <td>
+                  {user.isAdmin ? (
                     <FaCheck color='green' />
                   ) : (
                     <FaTimes color='red' />
-                  )} */}
-              </td>
-              <td>
-                {/* {' '}
+                  )}
+                </td>
+                <td>
+                  {' '}
                   {!user?.isAdmin && (
                     <Button
                       onClick={() => onPromote(user._id)}
@@ -87,20 +93,20 @@ const UserTable = () => {
                     >
                       Promote
                     </Button>
-                  )} */}
-              </td>
-              <td>
-                <Button
-                  // onClick={() => onDelete(user._id)}
-                  variant="danger"
-                  size="sm"
-                >
-                  <FaTrash />
-                </Button>
-              </td>
-              {/* <td>{product?.created_at}</td> */}
-            </tr>
-            {/* ))} */}
+                  )}
+                </td>
+                <td>
+                  <Button
+                    onClick={() => onDelete(user._id)}
+                    variant='danger'
+                    size='sm'
+                  >
+                    <FaTrash />
+                  </Button>
+                </td>
+            
+              </tr>
+             ))}
           </TableContainer>
         </Row>
       )}

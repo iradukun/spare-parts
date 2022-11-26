@@ -6,7 +6,7 @@ import { ReviewTypes } from "../utils/interfaces";
 export type Product = {
   _id: number | string;
   name: string;
-  price: number;
+  price: string;
   image: any;
   category: string;
   brand: string;
@@ -34,7 +34,8 @@ const ProductCard = ({ product }: Props) => {
           <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
             <span className="fs-2">{product.name}</span>
             <span className="ms-2 text-muted">
-              {formatCurrencry(product.price)}
+              {/* {formatCurrencry(product.price)} */}
+              {"$On Deal"}
             </span>
           </Card.Title>
         </Card.Body>
