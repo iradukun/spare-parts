@@ -6,7 +6,7 @@ import { ReviewTypes } from "../utils/interfaces";
 export type Product = {
   _id: number | string;
   name: string;
-  price: string;
+  price: any;
   image: any;
   category: string;
   brand: string;
