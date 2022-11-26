@@ -1,31 +1,31 @@
-import { useEffect, useState } from 'react';
-import { Button, Row } from 'react-bootstrap';
-import toast from 'react-hot-toast';
-import { FaCheck, FaTimes, FaTrash } from 'react-icons/fa';
-import DashboardLayout from '../../../components/layouts/dashboard-layout';
-import Loader from '../../../components/UI/loader';
-import TableContainer from '../../../components/UI/table-contrainer';
-import { useAppDispatch, useAppSelector } from '../../../redux';
-import { getUsersList } from '../../../redux/users/user-list';
-import authAxios from '../../../utils/auth-axios';
-import { setError } from '../../../utils/error';
-import { getDate } from '../../../utils/helper';
+import { useEffect, useState } from "react";
+import { Button, Row } from "react-bootstrap";
+import toast from "react-hot-toast";
+import { FaCheck, FaTimes, FaTrash } from "react-icons/fa";
+import DashboardLayout from "../../../components/layouts/dashboard-layout";
+import Loader from "../../../components/UI/loader";
+import TableContainer from "../../../components/UI/table-contrainer";
+import { useAppDispatch, useAppSelector } from "../../../redux";
+import { changeNav } from "../../../redux/navigation/sidebar";
+import { getUsersList } from "../../../redux/users/user-list";
+import authAxios from "../../../utils/auth-axios";
+import { setError } from "../../../utils/error";
+import { getDate } from "../../../utils/helper";
 
 const UserTable = () => {
-  
   const dispatch = useAppDispatch();
   const { users, loading } = useAppSelector((state) => state.userList);
 
-  const cols = ['name', 'email', 'created At', 'admin', 'promote', 'delete'];
+  const cols = ["name", "email", "created At", "admin", "promote", "delete"];
 
   const [refresh, setRefresh] = useState<boolean>(false);
 
   const onDelete = (id: string | number) => {
-    if (window.confirm('are you sure?')) {
+    if (window.confirm("are you sure?")) {
       authAxios
         .delete(`/users/${id}`)
         .then((res) => {
-          toast.success('user has beend deleted');
+          toast.success("user has beend deleted");
           setRefresh((prev) => (prev = !prev));
         })
         .catch((e) => toast.error(setError(e)));
@@ -33,11 +33,11 @@ const UserTable = () => {
   };
 
   const onPromote = (id: string | number) => {
-    if (window.confirm('are you sure?')) {
+    if (window.confirm("are you sure?")) {
       authAxios
         .post(`/users/promote/${id}`)
         .then((res) => {
-          toast.success('user has beend promoted');
+          toast.success("user has beend promoted");
           setRefresh((prev) => (prev = !prev));
         })
         .catch((e) => toast.error(setError(e)));
@@ -46,41 +46,38 @@ const UserTable = () => {
 
   useEffect(() => {
     dispatch(getUsersList());
+    dispatch(changeNav("users"));
   }, [dispatch, refresh]);
 
   return (
     <DashboardLayout>
       {loading ? (
-        <Loader />
+        <div className="loader-container">
+          <Loader />
+        </div>
       ) : (
-        <Row className='py-3'>
-          <h3 className='d-flex justify-content-between align-items-center'>
+        <Row className="py-3">
+          <h3 className="d-flex justify-content-between align-items-center">
             <span>User List</span>
             {/* <Button size='sm'>Add User</Button> */}
           </h3>
           <TableContainer cols={cols}>
             {/* {users.map((user) => ( */}
-              <tr 
-              // key={user._id}
-              >
-                <td>
-                  {/* {user.name} */}
-                </td>
-                <td>
-                  {/* {user.email} */}
-                  </td>
-                <td>
-                  {/* {getDate(user.createdAt)} */}
-                  </td>
-                <td>
-                  {/* {user.isAdmin ? (
+            <tr
+            // key={user._id}
+            >
+              <td>{/* {user.name} */}</td>
+              <td>{/* {user.email} */}</td>
+              <td>{/* {getDate(user.createdAt)} */}</td>
+              <td>
+                {/* {user.isAdmin ? (
                     <FaCheck color='green' />
                   ) : (
                     <FaTimes color='red' />
                   )} */}
-                </td>
-                <td>
-                  {/* {' '}
+              </td>
+              <td>
+                {/* {' '}
                   {!user?.isAdmin && (
                     <Button
                       onClick={() => onPromote(user._id)}
@@ -91,18 +88,18 @@ const UserTable = () => {
                       Promote
                     </Button>
                   )} */}
-                </td>
-                <td>
-                  <Button
-                    // onClick={() => onDelete(user._id)}
-                    variant='danger'
-                    size='sm'
-                  >
-                    <FaTrash />
-                  </Button>
-                </td>
-                {/* <td>{product?.created_at}</td> */}
-              </tr>
+              </td>
+              <td>
+                <Button
+                  // onClick={() => onDelete(user._id)}
+                  variant="danger"
+                  size="sm"
+                >
+                  <FaTrash />
+                </Button>
+              </td>
+              {/* <td>{product?.created_at}</td> */}
+            </tr>
             {/* ))} */}
           </TableContainer>
         </Row>

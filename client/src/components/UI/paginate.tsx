@@ -10,7 +10,7 @@ type Props = {
 
 const Paginate = ({ pages, page, isAdmin = false, keyword = '' }: Props) => {
   return (
-    <>
+    <div className='w-full pagination'>
       {pages > 1 && (
         <Pagination>
           {[...Array(pages).keys()].map((x) => (
@@ -29,7 +29,7 @@ const Paginate = ({ pages, page, isAdmin = false, keyword = '' }: Props) => {
           ))}
         </Pagination>
       )}
-    </>
+    </div>
   );
 };
 

@@ -1,9 +1,8 @@
 import { Button, Card, Col, Form, Row } from 'react-bootstrap';
-import FormContainer from '../../../components/UI/form-container';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { useAppSelector } from '../../../redux';
+import { useAppDispatch, useAppSelector } from '../../../redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import DashboardLayout from '../../../components/layouts/dashboard-layout';
 import authAxios from '../../../utils/auth-axios';
@@ -19,6 +18,7 @@ type FormValues = {
   description: string;
 };
 const ProductUpdate = () => {
+  const dispatch = useAppDispatch();
   const { products } = useAppSelector((state) => state.productFilter);
 
   const { id } = useParams();
